@@ -1,0 +1,2 @@
+This does nothing, it is just so that the dockerfile will still build
+even if you delete the conda env.yml

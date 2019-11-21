@@ -1,0 +1,35 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/alpine-3.10-git
+{
+	"name": "Python Plus Latex",
+	"dockerFile": "Dockerfile",
+	"context": "..",
+	"runArgs": [
+		"-v", "${env:HOME}${env:USERPROFILE}/.ssh:/home/vscode/.ssh-localhost:ro",
+		"-u", "vscode"
+	],
+	"postCreateCommand": "mkdir -p /home/vscode/.ssh; cp -r /home/vscode/.ssh-localhost/* /home/vscode/.ssh; [ -e /home/vscode/.ssh/openssh_is_stupid ] && cp /home/vscode/.ssh/openssh_is_stupid /home/vscode/.ssh/id_rsa; chmod 700 /home/vscode/.ssh; chmod 600 /home/vscode/.ssh/*",
+
+	// Use 'settings' to set *default* container specific settings.json values on container create. 
+	// You can edit these settings after create using File > Preferences > Settings > Remote.
+	"settings": {
+		// This dev container does include /bin/bash if you prefer to use it instead of ash.
+		"terminal.integrated.shell.linux": "/usr/bin/fish",
+		"python.pythonPath": "/home/vscode/.conda/envs/CS-Society/bin/python",
+		"python.linting.pylintPath": "/home/vscode/.conda/envs/CS-Society/bin/pylint",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": true
+
+	},
+
+	// Uncomment the next line if you want to publish any ports.
+	// "appPort": [],
+
+	// Uncomment the next line to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+
+	// Add the IDs of extensions you want installed when the container is created in the array 
+	// below. Note that some extensions may not work in Alpine Linux due to glibc dependencies 
+	// in native code inside the extension. See https://aka.ms/vscode-remote/linux for details.
+	"extensions": ["james-yu.latex-workshop", "streetsidesoftware.code-spell-checker", "ms-python.python"]
+}

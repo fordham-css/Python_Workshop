@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\author{Richard Morrill\\
+\small{Fordham University CS Society}}
+\parskip=12pt
+\begin{document}
+    \section{Introduction}
+    Thanks for taking an interest in my Python workshop!  I'm thrilled
+    you want to learn Python.  Whether you're an experienced programmer
+    in another language, or a complete beginner, I think you'll find Python
+    to be a worthwhile addition to your toolbox.  This manual is going to
+    take you through the basic ``housekeeping'' steps to make sure you have
+    an identical environment to the one I used to write and test the code
+    in this tutorial.  Note that the setup steps may seem overly complicated
+    for simply writing basic Python\dots and they are!  The reason for this
+    is that by setting up a robust environment, we'll be able to avoid putting
+    out too many fires at the beginning of the workshop, and also I think
+    that getting exposure to more capable tools from the start will make
+    your learning curve with Python quite a bit easier.  I anticipate that
+    these steps will take 10-20 minutes.
+
+    \section{Code Editor}
+    The editor I use for all languages is Microsoft's VsCode.  If you use
+    a different editor for coding, it probably works fine for Python, and
+    you can keep using it, you just might not get robust code linting,
+    completion, and debugging features. Also, I'll be less equipped to help
+    you fix any issues you might have.  So, use anything other than VsCode
+    at your own risk.
+
+    Install VsCode here: \url{https://code.visualstudio.com/}
+
+    \section{Python Environment}
+    There are two ways to set up an environment so that you can run the code
+    for this event.  The first (and simplest) way is through Docker. The main
+    advantage of doing it this way is that everything runs in a container, a
+    self-contained environment totally configured by scripts I already wrote
+    for you.  This will ensure that 1) nothing you do will break anything
+    you normally use, and 2) if you screw something up you can just rebuild
+    the container and it'll be back in working order.  If you are not
+    comfortable using a command line I highly, highly recommend just using
+    Docker as it will basically just configure everything for you.  Also,
+    Docker is a great tool to have as a programmer, you'll probably want to
+    learn how to use it at some point.
+
+    \subsection{Docker}
+    How you install Docker depends on your operating system.  Please see
+    the appropriate subsection.  No matter which version you install, at
+    no point should you actually need to create a Docker account.  Technically
+    you're supposed to make one before you get to the download link, but I've
+    conveniently skipped that step for you and put the links directly in this
+    document.
+
+    When you get to the workshop, I'll provide you with a repository that will
+    include the Dockerfile and config files needed to allow you to instantly
+    begin writing Python inside a container. (i.e. You're done once you've
+    installed Docker.)
+
+    \subsubsection{Windows}
+    The version of Docker you need depends on whether you have a
+    \emph{pro} or \emph{home} version of Windows.  If you aren't sure,
+    (on Windows 10 only), right click on the Start Menu icon, click System,
+    then read the ``Windows specifications'' section.
+
+    If you have Windows 10 Pro: \url{https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe}
+    you will be installing \emph{Docker Desktop}.
+
+    If you have Windows 10 Home: \url{https://docs.docker.com/toolbox/toolbox_install_windows/}.
+    You will be installing \emph{Docker Toolbox}.  This program has the same functionality
+    as Docker Desktop, but the installation is a little  bit more complicated.  Please
+    follow the instructions at the link and let me know if you have any questions.
+    \subsubsection{Linux}
+    If you use Linux on your daily driver I shouldn't need to tell you how
+    to install Docker\dots NEXT!
+
+    \subsubsection{Mac}
+    Ugh\dots if you've been coming to my events you know that Apple can be
+    the WORST when it comes to setting up a development environment that
+    doesn't revolve around XCode.  Luckily the Docker installer takes care
+    of all the weird bits for you this time. \url{https://download.docker.com/mac/stable/Docker.dmg}
+    \section{Directly Installing Python}
+
+    If Docker won't work for you, or you have something against containers,
+    you can simply install Python on your system.  If you know what you're
+    doing, just install Python and Pylint, and I can help you make sure
+    VsCode recognizes your Python install.  If you haven't done something
+    like this before, I recommend installing Miniconda: \url{https://docs.conda.io/en/latest/miniconda.html}.
+    Simply follow the instructions for your operating system, and then I'll take you
+    through the rest of the setup steps at the Workshop.
+\end{document}

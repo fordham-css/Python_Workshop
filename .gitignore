@@ -1,0 +1,11 @@
+*
+!/**/
+!.gitignore
+!*.py
+!*.tex
+!*.bib
+!*.pdf
+!*.yml
+!*.json
+!noop.txt
+!Dockerfile
