@@ -95,6 +95,11 @@ RUN if [ -f "/tmp/conda-tmp/environment.yml" ]; then /opt/conda/bin/conda env cr
 USER root
 RUN rm -rf /tmp/conda-tmp
 
+# Update conda
+RUN conda update -n base -c defaults conda
+
+# Install Minted + Pygments
+RUN apt-get install -y python-pygments
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=
 ENTRYPOINT [ "/usr/bin/tini", "--" ]

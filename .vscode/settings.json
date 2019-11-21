@@ -1,0 +1,20 @@
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-shell-escape",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        }
+    ],
+    "cSpell.words": [
+        "Miniconda",
+        "conda",
+        "framesubtitle"
+    ]
+}

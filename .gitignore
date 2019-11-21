@@ -7,5 +7,6 @@
 !*.pdf
 !*.yml
 !*.json
+!*.png
 !noop.txt
 !Dockerfile

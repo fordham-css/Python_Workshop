@@ -1,0 +1,153 @@
+\documentclass{beamer}
+\usepackage{minted}
+
+\definecolor{background}{RGB}{39, 40, 34}
+\definecolor{string}{RGB}{230, 219, 116}
+\definecolor{comment}{RGB}{117, 113, 94}
+\definecolor{normal}{RGB}{248, 248, 242}
+\definecolor{identifier}{RGB}{166, 226, 46}
+\definecolor{keyword}{HTML}{F92672}
+\definecolor{numbers}{HTML}{AE81FF}
+\definecolor{types}{HTML}{66D9EF}
+
+\usemintedstyle{monokai}
+\usetheme{Warsaw}
+
+\addtobeamertemplate{footnote}{\vspace{-6pt}\advance\hsize-0.5cm}{\vspace{6pt}}
+\makeatletter
+% Alternative A: footnote rule
+\renewcommand*{\footnoterule}{\kern -3pt \hrule \@width 2in \kern 8.6pt}
+% Alternative B: no footnote rule
+% \renewcommand*{\footnoterule}{\kern 6pt}
+\makeatother
+
+\setbeamercolor{normal text}{fg=normal,bg=background}
+\setbeamercolor{structure}{fg=normal}
+
+\setbeamercolor{alerted text}{fg=red!85!black}
+
+\setbeamercolor{item projected}{use=item,fg=background,bg=item.fg!35}
+
+\setbeamercolor*{palette primary}{use=structure,fg=structure.fg}
+\setbeamercolor*{palette secondary}{use=structure,fg=structure.fg!95!black}
+\setbeamercolor*{palette tertiary}{use=structure,fg=structure.fg!90!black}
+\setbeamercolor*{palette quaternary}{use=structure,fg=structure.fg!95!black,bg=black!80}
+
+\setbeamercolor*{framesubtitle}{fg=normal}
+
+\setbeamercolor*{block title}{parent=structure,bg=background}
+\setbeamercolor*{block body}{fg=black,bg=background}
+\setbeamercolor*{block title alerted}{parent=alerted text,bg=background}
+\setbeamercolor*{block title example}{parent=example text,bg=background}
+
+\title{Welcome to Python}
+\subtitle{No Sneks Allowed}
+\author{Richard Morrill}
+\institute{Fordham University CS Society}
+\logo{\includegraphics[width=2cm]{Images/css_logo_color.png}}
+\date{Thursday, Novemeber 21st 2019}
+
+\setminted[python]{
+  mathescape,
+  linenos,
+  numbersep=5pt,
+  gobble=2,
+  frame=lines,
+  framesep=2mm
+}
+\begin{document}
+\begin{frame}
+	\titlepage
+		    
+\end{frame}
+\begin{frame}[fragile]
+	\frametitle{Hello, Python}
+	\begin{minted}{python}
+		def main():
+		  print("Hello World!")
+				        
+		if __name__ == "__main__":
+		  main()
+	\end{minted}
+\end{frame}
+
+\section{Setup}
+\begin{frame}
+  \frametitle{What You Need}
+  \begin{itemize}
+    \item A Text Editor
+    \item A Python Interpreter
+  \end{itemize}
+  \pause
+  Why were your frigging instructions so damn complicated then?
+\end{frame}
+
+\begin{frame}
+  \frametitle{Why my frigging instructions were so damn complicated}
+  \begin{itemize}
+    \item Builds Character
+    \pause
+    \item Docker is Great
+    \footnote{Anybody want an event on Docker?}
+    \pause
+    \item I wanted to remove ALL variables from the process for beginners
+    \pause
+    \item You could've skipped them anyways
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Setup Steps: Python}
+  \begin{itemize}
+    \item Install Text Editor (VsCode Preferred): \url{https://code.visualstudio.com/download}
+    \item Install Docker\footnote{Optional}, find correct link in setup Doc
+    \item Clone / Download Repo: \url{https://github.com/fordham-css/Python_Workshop}
+    \pause
+    \item If using Docker:
+      \begin{itemize}
+        \item VsCode Required
+        \item Install Extension ``Remote - Containers''
+        \item Click Orangey Thingy at Bottom Left
+        \item Select ``Reopen in Container''
+        \item Wait\dots
+        \item You're ready
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Setup Steps: Python}
+
+  \begin{itemize}
+    \item If not using Docker:
+      \begin{itemize}
+        \item Install Miniconda: \url{https://docs.conda.io/en/latest/miniconda.html}
+        \item Open up:
+          \begin{itemize}
+            \item Mac: Terminal
+            \item Windows: Start Menu $\rightarrow$ Miniconda / Anaconda Prompt
+            \footnote{I can't remember exactly what it's called, bug me if it won't work.}
+          \end{itemize}
+        \pause
+        \item Navigate to wherever you cloned / downloaded the repo
+        \item Run \texttt{conda env create -f environment.yml}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Setup Steps: VsCode}
+  \begin{itemize}
+    \item F1
+    \item \texttt{> Python: Select Interpreter}
+    \item Click the one that has ``CS-Society'' somewhere
+    \footnote{Ask for help if you don't see it}
+    \item F1
+    \item \texttt{> Python: Select Linter}
+    \item Click ``pylint''
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{You did it!}
+  You now should all have a working Python setup.  We'll continue once
+  everybody has gotten it working.
+\end{frame}
+    
+\end{document}
