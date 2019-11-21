@@ -52,7 +52,7 @@
   linenos,
   numbersep=5pt,
   gobble=2,
-  frame=lines,
+  % frame=lines,
   framesep=2mm
 }
 \begin{document}
@@ -96,15 +96,30 @@
   \end{itemize}
 \end{frame}
 \begin{frame}
+  \frametitle{Setup Steps: Get Resources}
+  \begin{itemize}
+    \item All resources at: \url{https://github.com/fordham-css/Python_Workshop}
+    \item Either use \texttt{git clone} or download it as a zip file
+    \item Hint: You can download things from terminal on
+          most *NIX systems and in Powershell with \texttt{\$ wget URL}
+    \item Navigate to the \texttt{resources} directory
+    \item You'll be opening VsCode (After Python / Docker is set up) in this directory,
+          by navigating here in Terminal and typing \texttt{\$ code .} or through
+          the GUI on Windows (Ask me)\footnote{If you open VsCode in the main folder
+          of the repo it will attempt to install a ton of stuff you don't need.}
+  \end{itemize}
+
+\end{frame}
+\begin{frame}
   \frametitle{Setup Steps: Python}
   \begin{itemize}
     \item Install Text Editor (VsCode Preferred): \url{https://code.visualstudio.com/download}
     \item Install Docker\footnote{Optional}, find correct link in setup Doc
-    \item Clone / Download Repo: \url{https://github.com/fordham-css/Python_Workshop}
     \pause
     \item If using Docker:
       \begin{itemize}
         \item VsCode Required
+        \item Make sure you open it in the right directory\footnote{That's ``resources''}
         \item Install Extension ``Remote - Containers''
         \item Click Orangey Thingy at Bottom Left
         \item Select ``Reopen in Container''
@@ -127,21 +142,25 @@
             \footnote{I can't remember exactly what it's called, bug me if it won't work.}
           \end{itemize}
         \pause
-        \item Navigate to wherever you cloned / downloaded the repo
-        \item Run \texttt{conda env create -f environment.yml}
+        \item Navigate to ``resources'' folder inside wherever you downloaded
+              the repo
+        \item Open your text editor and wait
       \end{itemize}
   \end{itemize}
 \end{frame}
 \begin{frame}
   \frametitle{Setup Steps: VsCode}
   \begin{itemize}
+    \item If you're using Docker this will already be configured for you
     \item F1
     \item \texttt{> Python: Select Interpreter}
-    \item Click the one that has ``CS-Society'' somewhere
+    \item Click the one that that has conda/miniconda somewhere in it
     \footnote{Ask for help if you don't see it}
     \item F1
     \item \texttt{> Python: Select Linter}
     \item Click ``pylint''
+    \item It will prompt you to install PyLint, let it\footnote{If it asks
+          whether you want to use conda or pip say conda}
   \end{itemize}
 \end{frame}
 \begin{frame}
@@ -149,5 +168,82 @@
   You now should all have a working Python setup.  We'll continue once
   everybody has gotten it working.
 \end{frame}
-    
+\section{Basic Syntax}
+\begin{frame}
+  \frametitle{Python Has all the Basics}
+  \begin{itemize}
+    \item It's got functions
+    \pause
+    \item It's got variables
+    \pause
+    \item It's got operators
+    \pause
+    \item It's got classes and OOP\footnote{Not covered today}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Variables}
+  \begin{itemize}
+    \item For those that haven't programmed before:
+      \begin{itemize}
+        \item Not ``unknowns'' like in math
+        \item A place to store pieces of information
+      \end{itemize}
+    \item Open \texttt{basics/variables.py}
+  \end{itemize}
+  \pause
+
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Variables}
+  \begin{minted}{python}
+    # This file demonstrates variables in Python
+    # You don't need to use a 'var' keyword
+    # or declare a type
+    a = 1
+    b = "A string"
+    c = {
+      "This is": "A dictionary",
+      "It's pretty much": "the same thing as a JS object"
+    }
+    # This is a list
+    d = [a, b, c]
+    # This is fine, you can change type on the fly
+    a = b
+    \end{minted}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Printing}
+  \begin{itemize}
+    \item It's nice to see the results of our program.
+    \item We do this (in basic programs) by \underline{printing} to the
+          terminal.
+    \item Anybody know why it's called that?
+    \pause
+  \end{itemize}
+  \begin{minted}{python}
+  print("A string")
+  print(1)
+  print([1, 4, 5, 6])
+  \end{minted}
+  \begin{itemize}
+    \item You can print nearly anything, with varying degrees of success
+    \item Try printing some things, see what works well and what doesn't
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Control Flow}
+  \begin{itemize}
+    \item In its simplest form, a Python script is just a list of instructions
+          the interpreter does sequentially.
+    \pause
+    \item You control the order in which it executes statements using:\footnote{Who wants to tell me what each of these is?}
+    \begin{itemize}
+      \item Conditionals
+      \item Loops
+      \item Functions
+    \end{itemize}
+  \end{itemize}
+
+\end{frame}
 \end{document}

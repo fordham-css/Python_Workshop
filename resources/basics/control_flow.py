@@ -4,7 +4,6 @@
 # Also see how easily you can concatenate strings
 print("Unlike some languages, python has no main function, it just runs anything in your "
       "python file")
-
 condition = True
 if condition:
     print("If statements are pretty easy to deal with")

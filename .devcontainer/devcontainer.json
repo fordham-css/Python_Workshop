@@ -2,6 +2,10 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/master/containers/alpine-3.10-git
 {
 	"name": "Python Plus Latex",
+	// Dockerfile is the full-fat dockerfile with both LaTeX and the python
+	// env
+	// Fast-Up.Dockerfile is the same thing, but based on a premade image
+	// Py.Dockerfile is simply anaconda plus fish
 	"dockerFile": "Dockerfile",
 	"context": "..",
 	"runArgs": [
