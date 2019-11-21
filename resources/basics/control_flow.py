@@ -18,4 +18,17 @@ print("Functions won't run until they're called")
 aFunction()
 print(aFunction.__doc__)
 
-# We'll do loops later
+a_list = [1, 5, 7, 9, 2, 8]
+
+for num in a_list:
+    if num == 7:
+        break
+    print(num)
+
+b = 5
+
+while(b > 0):
+    b = b - 1
+
+for i in range(9):
+    print(i)

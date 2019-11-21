@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 \usepackage{minted}
 
 \definecolor{background}{RGB}{39, 40, 34}
@@ -12,7 +12,7 @@
 
 \usemintedstyle{monokai}
 \usetheme{Warsaw}
-
+\useoutertheme{infolines}
 \addtobeamertemplate{footnote}{\vspace{-6pt}\advance\hsize-0.5cm}{\vspace{6pt}}
 \makeatletter
 % Alternative A: footnote rule
@@ -51,7 +51,7 @@
   mathescape,
   linenos,
   numbersep=5pt,
-  gobble=2,
+  autogobble,
   % frame=lines,
   framesep=2mm
 }
@@ -88,7 +88,9 @@
       \item Data Science
       \item Some random utility some guy wrote for one very specific problem
     \end{itemize}
+    \pause
     \item Python is Great for Personal Projects
+    \pause
     \begin{itemize}
       \item Easy to start fast
       \item No need to worry about advanced CS stuff
@@ -99,6 +101,7 @@
   \frametitle{Why not Python?}
   \pause
   It's SLOW AF
+  
   \pause
   It hides a lot of the ``fun'' from you
 \end{frame}
@@ -197,6 +200,15 @@
   \frametitle{You did it!}
   You now should all have a working Python setup.  We'll continue once
   everybody has gotten it working.
+
+  \vspace{24pt}
+  To ensure it actually is working:
+  \begin{itemize}
+    \item Open a terminal (VsCode menu bar $\rightarrow$ Terminal $\rightarrow$ New Terminal)
+    \item Type \texttt{python --version}
+    \item You should see ``Python 3.7.5''\footnote{Don't sweat it if your number is
+    slightly lower}
+  \end{itemize}
 \end{frame}
 \section{Basic Syntax}
 \begin{frame}
@@ -209,6 +221,17 @@
     \item It's got operators
     \pause
     \item It's got classes and OOP\footnote{Not covered today}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Indented Syntax}
+  \begin{itemize}
+    \item If you're used to C++ this will trip you up
+    \item Python relies on indent to tell which code is in
+          which block.
+    \item You may use either tabs or spaces, but you must be consistent
+    \item Keep top-level code right against the left margin
+    \item This will all make more sense once you see examples
   \end{itemize}
 \end{frame}
 \begin{frame}
@@ -269,7 +292,7 @@
     \pause
     \item You control the order in which it executes statements using:\footnote{Who wants to tell me what each of these is?}
     \begin{itemize}
-      \item Conditionals
+      \item If Statements
       \item Loops
       \item Functions
     \end{itemize}
@@ -299,8 +322,8 @@
     print("This will always execute")
   \end{minted}
 \end{frame}
-\begin{frame}
-  \frametitle{Functions}[fragile]
+\begin{frame}[fragile]
+  \frametitle{Functions}
   \begin{itemize}
     \item For those that haven't programmed before:
     \begin{itemize}
@@ -309,6 +332,245 @@
       \item Optionally takes input and returns output
     \end{itemize}
   \end{itemize}
+  \pause
+  \begin{minted}{python}
+  def example_function(var_a, var_b):
+    '''This function takes 2 arguments'''
+
+    # It also returns 2 values
+    return var_b, var_a
+  \end{minted}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Functions}
+  \begin{minted}{python}
+  def no_arguments():
+    # Do stuff...
+    return 5
+  
+  def no_return(var_1, var_2):
+    # Do stuff
+    var_1 += 3
+    print(var_2 + var_1)
+    # Notice there's no return statement
+  
+  # If you want, you can still return early from a function
+  def print_conditional(var_1):
+    if (var_1 == 5):
+      return
+    print(var_1)
+  \end{minted}
+\end{frame}
+\begin{frame}
+  \frametitle{Loops}
+  \begin{itemize}
+    \item Do the same thing over and over
+    \pause
+    \item While Loops:
+    \begin{itemize}
+      \item Run until condition is no longer true
+      \item Won't even run once if condition isn't true
+    \end{itemize}
+    \pause
+    \item For Loops:
+      \begin{itemize}
+        \item Run a fixed number of times\footnote{Although that number can be modified while they run, and they can exit early}
+        \item In Python almost always over a list of something
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{While Loop Example}
+  \begin{minted}{python}
+  b = 5
+  while(b > 0):
+    b = b - 1
+  \end{minted}
+  \pause
+  \begin{itemize}
+    \item Anybody see the potential issue here?
+    \pause
+    \item While loops always need a good exit condition
+  \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{For Loop Example}
+
+  \begin{minted}{python}
+  a = [5, 7, 8]
+  for num in a:
+    print(num)
+  \end{minted}
+  \pause
+  If you want to exit early
+  \begin{minted}{python}
+    a = [5, 7, 8]
+    for num in a:
+      if num == 7:
+        break
+      print(num)
+  \end{minted}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{For Loop Example}
+
+  If you want to run a fixed number of times without a list:
+  \begin{minted}{python}
+    for i in range(9):
+    print(i)
+  \end{minted}
+
+\end{frame}
+\section{Math}
+\begin{frame}
+  \frametitle{Numbers}
+  \begin{itemize}
+    \item Most languages have a bunch of number types
+    \pause
+    \item Python only has 3 (that you can see):
+    \begin{itemize}
+      \item int
+      \item float
+      \item complex
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Numbers}
+  \begin{minted}{python}
+  # An integer
+  a = 4
+  print(a)
+  # A floating point number
+  b = 4.3
+  print(b)
+  # Round down a float
+  print(int(4.3))
+  # A string
+  c = "1000"
+  print(c * 5)
+  \end{minted}
+  \pause
+  $\rightarrow$Somebody run that last line
+  \pause
+  \begin{minted}{python}
+  # So, convert a string to a number
+  print(int(c) * 5)
+  \end{minted}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Arithmatic Operators}
+  \begin{minted}{python}
+  # All of these work exactly like you'd expect
+  print(2 + 3)
+  print(10 / 2)
+  print(3 * 7)
+  print(3 - 19)
+  # If you're used to C++, this might work differently
+  # than you'd expect
+  print(11 / 2)
+  # If you want integer division, use //
+  print(11 // 2)
+  # Python also has a cool exponentiation operator
+  print("3^3 = {}".format(3**3))
+  \end{minted}
+\end{frame}
+\begin{frame}
+  \frametitle{Logical Operators}
+  \begin{itemize}
+    \item Used to compare values:
+      \begin{itemize}
+        \item Equality: \mintinline{python}{ 3 == 5}
+        \item Greater / Less Than: \mintinline{python}{ 2 > 4}
+        \item Greater Than or Equal: \mintinline{python}{ 5 >= 8}
+      \end{itemize}
+      \pause
+    \item Combining logical statements
+    \begin{itemize}
+      \item And: \mintinline{python}{2 < 8 and 4 == 4}
+      \item Or: \mintinline{python}{"a" == "b" or 5 == 5}
+    \end{itemize} 
+  \end{itemize}
+\end{frame}
+\section{Strings and Lists}
+\begin{frame}
+  \frametitle{What is a string?}
+  \begin{itemize}
+    \item If you haven't programmed before:
+      \begin{itemize}
+        \item A sequence of \underline{characters}
+        \item Used to store text
+      \end{itemize}
+    \pause
+    \item Closely related to lists
+  \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{String Operations}
+  \begin{minted}{python}
+a = "This is a string"
+b = "this is another string"
+# We can concatenate them together
+c = a + ", and " + b
+# We can split them apart
+for w in a.split():
+    print(w)
+# We can change case
+print(a.upper())
+print(a.lower())
+# we can test if a string contains another
+if "is" in a:
+    print("Yay!")
+else:
+    print("Boo!")
+  \end{minted}
+\end{frame}
+\begin{frame}
+  \frametitle{What is a list?}
+  \begin{itemize}
+    \item An ordered collection of values
+    \item Holds any type
+  \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{List Operations}
+  \begin{minted}{python}
+    a = [66.25, 333, 333, 1, 1234.5]
+    print a.count(333), a.count(66.25), a.count('x')
+    # 1st Argument index of element before which to insert
+    a.insert(2, -1)
+    a.append(333)
+    # Find index of first item with that value
+    a.index(333)
+    # Remove item with that value
+    a.remove(333)
+    a.reverse()
+    a.sort()
+    a.pop()
+  \end{minted}
+\end{frame}
+\section{Conclusions}
+\begin{frame}
+  \frametitle{You Have the Tools}
+  \begin{itemize}
+    \item All I've given you today is the tools, it's up to you to figure
+          out how to actually use them
+    \pause
+    \item Project Ideas:
+      \begin{itemize}
+        \item Simple Calculator
+        \item Guessing Game
+      \end{itemize}
+      \pause
+    \item Possible Future Events
+      \begin{itemize}
+        \item Scikit (Data Science)
+        \item Game Making
+        \item Tensorflow (Neural Networks)
+      \end{itemize}
+  \end{itemize}
+
+  
 
 \end{frame}
 \end{document}
