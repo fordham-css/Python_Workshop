@@ -70,7 +70,38 @@
 		  main()
 	\end{minted}
 \end{frame}
-
+\begin{frame}
+  \frametitle{Why Python?}
+  \begin{itemize}
+    \item Python is an interpreted programming language / scripting language (i.e. an \underline{interpreter} runs your code)
+    \pause
+    \begin{itemize}
+      \item No need to write ``boilerplate'' like in C++
+      \item Much harder to crash your computer
+      \item Much harder to leave critical security vulnerabilities\footnote{Well, of a very specific type\dots}
+    \end{itemize}
+    \pause
+    \item Python is EVERYWHERE
+    \pause
+    \begin{itemize}
+      \item Machine Learning
+      \item Data Science
+      \item Some random utility some guy wrote for one very specific problem
+    \end{itemize}
+    \item Python is Great for Personal Projects
+    \begin{itemize}
+      \item Easy to start fast
+      \item No need to worry about advanced CS stuff
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Why not Python?}
+  \pause
+  It's SLOW AF
+  \pause
+  It hides a lot of the ``fun'' from you
+\end{frame}
 \section{Setup}
 \begin{frame}
   \frametitle{What You Need}
@@ -135,13 +166,13 @@
     \item If not using Docker:
       \begin{itemize}
         \item Install Miniconda: \url{https://docs.conda.io/en/latest/miniconda.html}
-        \item Open up:
-          \begin{itemize}
-            \item Mac: Terminal
-            \item Windows: Start Menu $\rightarrow$ Miniconda / Anaconda Prompt
-            \footnote{I can't remember exactly what it's called, bug me if it won't work.}
-          \end{itemize}
-        \pause
+        % \item Open up:
+        %   \begin{itemize}
+        %     \item Mac: Terminal
+        %     \item Windows: Start Menu $\rightarrow$ Miniconda / Anaconda Prompt
+        %     \footnote{I can't remember exactly what it's called, bug me if it won't work.}
+        %   \end{itemize}
+        % \pause
         \item Navigate to ``resources'' folder inside wherever you downloaded
               the repo
         \item Open your text editor and wait
@@ -154,8 +185,7 @@
     \item If you're using Docker this will already be configured for you
     \item F1
     \item \texttt{> Python: Select Interpreter}
-    \item Click the one that that has conda/miniconda somewhere in it
-    \footnote{Ask for help if you don't see it}
+    \item Click the one that that has conda/miniconda somewhere\footnote{Ask for help if you don't see it}
     \item F1
     \item \texttt{> Python: Select Linter}
     \item Click ``pylint''
@@ -242,6 +272,41 @@
       \item Conditionals
       \item Loops
       \item Functions
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Conditionals}
+  \begin{itemize}
+    \item There's another variable type: \underline{boolean} (True / False)
+    \item You can define them literally:
+  \end{itemize}
+  \begin{minted}{python}
+  condition = True
+  if condition:
+    print("If statements are pretty easy to deal with")
+  else:
+    print("Just don't forget the colons and indent")
+  \end{minted}
+  \pause
+  \begin{itemize}
+    \item Or use the result of a comparison\footnote{I'll go over all the available comparisons later}
+  \end{itemize}
+  \begin{minted}{python}
+  if "something" == "not something":
+    print("This will never execute")
+  else:
+    print("This will always execute")
+  \end{minted}
+\end{frame}
+\begin{frame}
+  \frametitle{Functions}[fragile]
+  \begin{itemize}
+    \item For those that haven't programmed before:
+    \begin{itemize}
+      \item A set of statements that can be run over and over again
+      \item \underline{Called} by name
+      \item Optionally takes input and returns output
     \end{itemize}
   \end{itemize}
 
